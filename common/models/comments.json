@@ -1,24 +1,22 @@
 {
-  "name": "blog",
+  "name": "comments",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "content": {
-      "type": "string",
-      "required": true
-    },
-    "commentId": {
-      "type": "string"
-    },
     "userId": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "commentDetail": {
+      "type": "string",
+      "required": true
+    },
+    "blogId": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],

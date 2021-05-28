@@ -6,8 +6,7 @@
     "validateUpsert": false
   },
   "mixins": {
-    "Audit": {},
-    "Count": {}
+    "Audit": {}
   },
   "properties": {},
   "validations": [],

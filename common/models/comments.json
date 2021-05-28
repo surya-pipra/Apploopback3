@@ -1,26 +1,29 @@
 {
   "name": "comments",
-  "base": "PersistedModel",
+  "base": "CFBasePersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "userId": {
-      "type": "string",
-      "required": true
-    },
     "commentDetail": {
-      "type": "string",
-      "required": true
-    },
-    "blogId": {
       "type": "string",
       "required": true
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "blog": {
+      "type": "belongsTo",
+      "model": "blog",
+      "foreignKey": "blogId"
+    },
+    "cfuser": {
+      "type": "belongsTo",
+      "model": "cfuser",
+      "foreignKey": "userId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

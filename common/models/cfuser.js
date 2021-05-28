@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function(Cfuser) {
+module.exports = function (Cfuser) {
 
 };

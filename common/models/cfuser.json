@@ -8,27 +8,36 @@
   "properties": {
     "firstName": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "lastName": {
       "type": "string",
-      "required": true
-    },
-    "role": {
-      "type": "string",
-      "required": true
+      "required": false
     },
     "password": {
       "type": "string",
       "required": true
     },
-    "phone": {
+    "mobile": {
       "type": "string",
-      "required": true
+      "required": false
+    },
+    "avatarUrl": {
+      "type": "string",
+      "required": false
     }
   },
+  "restrictResetPasswordTokenScope": true,
+  "emailVerificationRequired": true,
   "validations": [],
   "relations": {},
-  "acls": [],
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "accessType": "READ",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }

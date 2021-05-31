@@ -7,12 +7,23 @@
 
 const loopback = require('loopback');
 const boot = require('loopback-boot');
+const path = require('path');
+const bodyParser = require('body-parser');
 
 const app = module.exports = loopback();
 
-app.start = function() {
+// configure view handler	
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// configure body parser	
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(loopback.token());
+
+app.start = function () {
   // start the web server
-  return app.listen(function() {
+  return app.listen(function () {
     app.emit('started');
     const baseUrl = app.get('url').replace(/\/$/, '');
     console.log('Web server listening at: %s', baseUrl);
@@ -25,7 +36,7 @@ app.start = function() {
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
-boot(app, __dirname, function(err) {
+boot(app, __dirname, function (err) {
   if (err) throw err;
 
   // start the server if `$ node server.js`
